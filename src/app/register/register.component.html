@@ -1,0 +1,17 @@
+<div class="bg-02 hero-section division" style="height: 10in;">Register
+
+    <div class="row white-color">
+
+        <div class="col-6 mx-auto mt-5 white-color">
+            <h2>Register</h2>
+           <input [(ngModel)]="client.name" placeholder="Name" type="nom" class="form-control m-2" >
+            <input [(ngModel)]="client.lastname" placeholder="LastName" type="text" class="form-control m-2">
+            <input [(ngModel)]="client.email" placeholder="Email" type="email" class="form-control m-2">
+            <input [(ngModel)]="client.adress" placeholder="Adress" type="text" class="form-control m-2">
+            <input [(ngModel)]="client.password" placeholder="Password" type="password" class="form-control m-2">
+            <button (click)="registerclient()" class="btn btn-success form-control m-2">Register</button>
+        </div>
+
+    </div>
+
+</div>

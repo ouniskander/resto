@@ -1,0 +1,109 @@
+
+			<!-- PAGE HERO
+			============================================= -->
+			<div id="product-page" class="page-hero-section division">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1">
+							<div class="hero-txt text-center white-color">
+
+								<!-- Breadcrumb -->
+								<div id="breadcrumb">
+									<div class="row">
+										<div class="col">
+											<div class="breadcrumb-nav">
+												<nav aria-label="breadcrumb">
+												  	<ol class="breadcrumb">
+												    	<li class="breadcrumb-item"><a href="demo-1.html">Home</a></li>
+												    	<li class="breadcrumb-item"><a href="menu-2.html">Menu</a></li>
+												    	<li class="breadcrumb-item active" aria-current="page">Smokey House</li>
+												  	</ol>
+												</nav>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Title -->
+								<h2 class="h2-xl">Smokey House</h2>
+
+							</div>
+						</div>
+					</div>	  <!-- End row -->
+				</div>	   <!-- End container -->
+			</div>	<!-- END PAGE HERO -->
+
+
+
+<div class="wrap cf">
+    <!--<h1 class="projTitle">Responsive Table<span>-Less</span> Shopping Cart</h1>-->
+    <div class="heading cf">
+      <h1>My Cart</h1>
+    <!--   <a href="#" class="continue">Continue Shopping</a> -->
+    </div>
+    <div class="cart">
+  <!--    <ul class="tableHead">
+        <li class="prodHeader">Product</li>
+        <li>Quantity</li>
+        <li>Total</li>
+         <li>Remove</li>
+      </ul>-->
+      <ul class="cartWrap">
+        <li class="items even" *ngFor="let a of panier">
+          
+      <div class="infoWrap"> 
+          <div class="cartSection">
+          <img style="height: 120px;width: 150px" [src]="'http://127.0.0.1:4000/getfile/' + a.menu.image" alt="" class="itemImg" />
+          <p class="itemNumber">#Calories : {{ a.menu.calories }}</p> &nbsp;
+          <p class="itemNumber">#Weight : {{ a.menu.weight }}</p>
+            <h3>{{ a.menu.titre }}</h3>
+
+             <p> <input type="number" style="width:50px;height: 50px;" min="1"  class="qty" [value]="a.quantity" (change)="updateItem(a,$event)" placeholder="3"/> x {{ a.menu.prix }} TND</p>
+          
+           <!-- <p class="stockStatus"> In Stock</p> -->
+          </div>  
+          <div class="prodTotal cartSection">
+            <p>{{ a.total }} TND</p>
+          </div>
+                <div class="cartSection removeWrap">
+             <a (click)="removeItem(a)" class="remove">x</a>
+          </div>
+        </div>
+        </li>
+      
+        
+        
+        <!--<li class="items even">Item 2</li>-->
+   
+      </ul>
+    </div>
+    <!--
+    <div class="promoCode"><label for="promo">Have A Promo Code?</label><input type="text" name="promo" placholder="Enter Code" />
+    <a href="#" class="btn"></a></div>
+    -->
+    <div class="subtotal cf">
+      <ul>
+        <li class="totalRow"><span class="label">Subtotal</span><span class="value">{{ totalcart }} TND</span></li>
+        
+              <li class="totalRow"><span class="label">Tax</span><span class="value">0.00 TND</span></li>
+              <li class="totalRow final"><span class="label">Total</span><span class="value">{{ totalcart }} TND</span></li>
+        <li class="totalRow"><a style="color:black;" (click)="onClickCheckout()" class="btn continue">Checkout</a></li>
+      </ul>
+    </div>
+      <div class="nav flex-column" *ngIf="hide" >
+        <div class="form-group">
+            <label for="exampleInputEmail1">Address</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="address" aria-describedby="emailHelp" placeholder="Enter Address">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail2">Phone Number</label>
+            <input type="number" class="form-control" id="exampleInputEmail2" [(ngModel)]="phone" aria-describedby="phoneHelp" placeholder="Enter Phone Number">
+          </div>  
+          <div class="form-group">
+            <label for="exampleInputEmail3">Zip</label>
+            <input type="number" class="form-control" id="exampleInputEmail3" [(ngModel)]="zip" aria-describedby="zipHelp" placeholder="Enter Zip code">
+          </div>
+          <button type="button" (click)="Commander()" style="color: black;" class="btn btn-primary">Commander</button> </div>
+ 
+  </div>
+

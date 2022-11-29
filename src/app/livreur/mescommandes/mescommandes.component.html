@@ -1,0 +1,68 @@
+
+			<!-- PAGE HERO
+			============================================= -->
+			<div id="product-page" class="page-hero-section division">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1">
+							<div class="hero-txt text-center white-color">
+
+								<!-- Breadcrumb -->
+								<div id="breadcrumb">
+									<div class="row">
+										<div class="col">
+											<div class="breadcrumb-nav">
+												<nav aria-label="breadcrumb">
+												  	<ol class="breadcrumb">
+												    	<li class="breadcrumb-item"><a href="demo-1.html">Home</a></li>
+												    	<li class="breadcrumb-item"><a href="menu-2.html">Menu</a></li>
+												    	<li class="breadcrumb-item active" aria-current="page">Smokey House</li>
+												  	</ol>
+												</nav>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Title -->
+								<h2 class="h2-xl">Smokey House</h2>
+
+							</div>
+						</div>
+					</div>	  <!-- End row -->
+				</div>	   <!-- End container -->
+			</div>	<!-- END PAGE HERO -->
+<br><br><br><br>
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Zip Code</th>
+                <th scope="col">Menus</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let c of commandes" >
+                <td>{{ c.adresse }}</td>
+                <td>{{ c.phone }}</td>
+                <td>{{ c.zip }}</td>
+                <td><a *ngFor="let m of c.menu" [routerLink]="['/detailmenu' , c._id]"><span class="badge badge-pill badge-primary">{{ m.titre }}</span>,&nbsp;</a></td>
+                <td>{{ c.prix }} TND</td>
+                <td *ngIf="c.status=='Posted'" ><span class="badge badge-warning">{{ c.status }}</span></td>
+                <td *ngIf="c.status=='Delivered'" ><span class="badge badge-success">{{ c.status }}</span></td>
+                <td *ngIf="c.status=='Annulled'" ><span class="badge badge-danger">{{ c.status }}</span></td>
+                <td *ngIf="c.status=='Posted'" ><a (click)="onClickAnnulled(c)"><i style="color: red;cursor: pointer;" class="fa fa-trash-o"> Annuler</i></a></td>
+              </tr>
+           
+            </tbody>
+          </table>
+          
+  
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="bg-02 hero-section division" style="height: 10in;">
+
+  <div class="row">
+      <div class="hero-12-txt white-color ">
+          <h1> Liste de tous les menus </h1>
+      </div>
+
+      <div class="hero-12-txt white-color">
+          <button routerLink="/admin/ajout" class="btn btn-primary mt-3" style="float: right;">Ajouter</button>
+      </div>
+
+  </div>
+
+  <input [(ngModel)]="searchText" placeholder="search text goes here">
+  <div class="row mt-5 ">
+
+      <table class="table white-color">
+          <thead>
+              <tr>
+                  <th>image</th>
+                  <th>titre</th>
+                  <th>description</th>
+                  <th>prix</th>
+                  <th>options</th>
+              </tr>
+          </thead>
+
+          <tbody>
+              <tr *ngFor="let item of menus | filter: searchText">
+                  <td>
+                      <img style="width: 50px;" [src]=" 'http://127.0.0.1:4000/getfile/' + item.image " alt="">
+                  </td>
+                  <td> {{ item.titre }} </td>
+                  <td> {{item.description}} </td>
+                  <td> {{ item.prix }} </td>
+                  <td>
+
+                      <button (click)="delete(item._id)" class="btn btn-danger">Delete</button>
+                      <button [routerLink]="['/admin/update' , item._id]" class="btn btn-info">update</button>
+                  </td>
+              </tr>
+          </tbody>
+
+      </table>
+
+  </div>
+
+</div>

@@ -1,0 +1,80 @@
+
+			<!-- MENU-6
+			============================================= -->
+			<section id="menu" class="wide-70 menu-section division">
+				<div class="container">
+
+
+					<!-- SECTION TITLE -->
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1">
+							<div class="section-title mb-60 text-center">
+
+								<!-- Title 	-->
+								<h2 class="h2-xl">treat yourself at a low price and delicious meals at pizzurger</h2>
+
+								<!-- Text -->
+
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+
+
+						<!-- MENU ITEM #1 -->
+						<div *ngFor="let item of menus" class="col-sm-6 col-lg-3">
+							<div class="menu-6-item bg-white">
+
+								<!-- IMAGE -->
+								<div class="menu-6-img rel">
+									<div class="hover-overlay">
+
+										<!-- Image -->
+										<img class="img-fluid" [src]="'http://127.0.0.1:4000/getfile/' + item.image" alt="menu-image" style="width: 270px;height:200px" />
+
+										<!-- Item Code -->
+
+
+
+
+									</div>
+								</div>
+
+								<!-- TEXT -->
+								<div class="menu-6-txt rel">
+
+									<!-- Rating -->
+
+
+
+									<!-- Title -->
+								<a  [routerLink]="['/detailmenu' , item._id]"><h5 class="h5-sm" > {{ item.titre }} </h5></a>
+
+									<!-- Description -->
+									<p class="grey-color"> {{ item.description }} </p>
+
+									<!-- Price -->
+									<div class="menu-6-price bg-salmon">
+										<h5 class="h5-xs white-color">$ {{item.prix}} </h5>
+									</div>
+									<br>
+									<br>
+									<a style="color: black;float: right;" (click)="addPanier(item)" class="btn btn-outline-warning">Add To Cart</a>
+
+
+
+								</div>
+
+							</div>
+						</div>	<!-- END MENU ITEM #1 -->
+
+
+
+
+					</div>	  <!-- End row -->
+				</div>	   <!-- End container -->
+			</section>	<!-- END MENU-6 -->
+

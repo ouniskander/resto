@@ -1,0 +1,48 @@
+<div class="bg-02 hero-section division" style="height: 10in;">
+
+  <div class="row white-color">
+      <div class="col-6 white-color">
+          <h1> Liste de tous les clients </h1>
+      </div>
+
+
+
+  </div>
+
+  <input [(ngModel)]="searchText" placeholder="search text goes here">
+
+  <div class="row mt-5 white-color">
+
+      <table class="table white-color">
+          <thead>
+              <tr>
+                  <th> name </th>
+                  <th>lastname</th>
+                  <th>email</th>
+                  <th>numcommande</th>
+
+              </tr>
+          </thead>
+
+          <tbody>
+              <tr *ngFor="let item of listclients| filter: searchText">
+                  <td>
+                      <img style="width: 50px;" [src]=" 'http://127.0.0.1:4000/getfile/' " alt="">
+                  </td>
+                  <td> {{ item.name }} </td>
+                  <td> {{item.lastname}} </td>
+                  <td> {{ item.numcommande}} </td>
+                  <td>
+                        <!-- (click)="delete(item._id)" -->
+                      <button  class="btn btn-danger">Delete</button>
+                      <button [routerLink]="['/livreur/listclients/update' , item._id]" class="btn btn-info">update</button>
+                  </td>
+              </tr>
+          </tbody>
+
+      </table>
+
+  </div>
+
+</div>
+
